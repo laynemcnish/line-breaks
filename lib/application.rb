@@ -8,14 +8,14 @@ class TextEditor
   def initialize(file)
 
     @file = File.read(file)
-
+    @filename = File.basename(file)
 
   end
 
   def text_split(number)
 
   new_text = word_wrap(@file, line_width: number)
-  File.write('../bin/output.txt', new_text)
+  File.write(('../output/' + @filename), new_text)
 
   end
 
@@ -33,6 +33,8 @@ what = TextEditor.new("../data/what!?.txt")
 # puts i_knew_them.text_split(15)
 
 what.text_split(50)
+
+
 
 
 
